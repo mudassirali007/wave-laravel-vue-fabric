@@ -1,0 +1,26 @@
+{
+  "canvasProps": {
+    "crossOrigin": "Anonymous",
+    "backgroundColor": "#2B2B2B",
+    "canvasWidth": 4320,
+    "canvasHeight": 1080
+  },
+  "clipPath": {
+    "left": 0,
+    "top": 0,
+    "width": 4320,
+    "height": 1080,
+    "absolutePositioned": true,
+    "rx": 0,
+    "ry": 0,
+    "fill": "#FFF",
+    "hasControls": true,
+    "transparentCorners": false,
+    "borderColor": "#0E98FC",
+    "cornerColor": "#0E98FC",
+    "cursorWidth": 1,
+    "cursorDuration": 1,
+    "cursorDelay": 250,
+    "id": "overlay"
+  }
+}
