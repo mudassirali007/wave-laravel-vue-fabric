@@ -1,8 +1,8 @@
 import axios from 'axios'
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+// import Swal from 'sweetalert2/dist/sweetalert2.js'
 import store from '~/store'
-import router from '~/router'
-import i18n from '~/plugins/i18n'
+// import router from '~/router'
+// import i18n from '~/plugins/i18n'
 
 // Request interceptor
 axios.interceptors.request.use(request => {
@@ -26,18 +26,18 @@ axios.interceptors.response.use(response => response, error => {
   const { status } = error.response
 
   if (status === 401 && store.getters['auth/check']) {
-    Swal.fire({
-      icon: 'warning',
-      title: i18n.t('token_expired_alert_title'),
-      text: i18n.t('token_expired_alert_text'),
-      reverseButtons: true,
-      confirmButtonText: i18n.t('ok'),
-      cancelButtonText: i18n.t('cancel')
-    }).then(() => {
-      store.commit('auth/LOGOUT')
-
-      router.push({ name: 'login' })
-    })
+    // Swal.fire({
+    //   icon: 'warning',
+    //   title: i18n.t('token_expired_alert_title'),
+    //   text: i18n.t('token_expired_alert_text'),
+    //   reverseButtons: true,
+    //   confirmButtonText: i18n.t('ok'),
+    //   cancelButtonText: i18n.t('cancel')
+    // }).then(() => {
+    //   store.commit('auth/LOGOUT')
+    //
+    //   router.push({ name: 'login' })
+    // })
   }
 
   if (status >= 500) {
@@ -62,24 +62,24 @@ async function serverError (response) {
       iframe.srcdoc = response.data
     }
 
-    Swal.fire({
-      html: iframe.outerHTML,
-      showConfirmButton: false,
-      customClass: { container: 'server-error-modal' },
-      didDestroy: () => { serverErrorModalShown = false },
-      grow: 'fullscreen',
-      padding: 0
-    })
+    // Swal.fire({
+    //   html: iframe.outerHTML,
+    //   showConfirmButton: false,
+    //   customClass: { container: 'server-error-modal' },
+    //   didDestroy: () => { serverErrorModalShown = false },
+    //   grow: 'fullscreen',
+    //   padding: 0
+    // })
 
     serverErrorModalShown = true
   } else {
-    Swal.fire({
-      icon: 'error',
-      title: i18n.t('error_alert_title'),
-      text: i18n.t('error_alert_text'),
-      reverseButtons: true,
-      confirmButtonText: i18n.t('ok'),
-      cancelButtonText: i18n.t('cancel')
-    })
+    // Swal.fire({
+    //   icon: 'error',
+    //   title: i18n.t('error_alert_title'),
+    //   text: i18n.t('error_alert_text'),
+    //   reverseButtons: true,
+    //   confirmButtonText: i18n.t('ok'),
+    //   cancelButtonText: i18n.t('cancel')
+    // })
   }
 }

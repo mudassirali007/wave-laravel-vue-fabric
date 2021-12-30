@@ -1,6 +1,7 @@
 const { join, resolve } = require('path')
 const { copySync, removeSync } = require('fs-extra')
 const mix = require('laravel-mix')
+
 require('laravel-mix-versionhash')
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
@@ -8,9 +9,35 @@ mix
   .js('resources/js/app.js', 'public/dist/js').vue({
     extractStyles: true
   })
-  .sass('resources/sass/app.scss', 'public/dist/css')
-
+  // .sass('resources/sass/app.scss', 'public/dist/css')
+    .postCss("resources/css/app.css", "public/dist/css", [
+      require("tailwindcss"),
+    ])
   .disableNotifications()
+    .extract([
+      'vue',
+      'vue-meta',
+      'vue-router',
+      'vuex-router-sync',
+      'vue-i18n',
+      'axios',
+      'fabric',
+      'js-cookie',
+      'tailwindcss',
+      'vue-tailwind',
+      'postcss',
+      'laravel-mix',
+      'lodash',
+      'vue-loader',
+      'vue-template-compiler',
+      'bootstrap',
+      'bootstrap-vue',
+      'jquery',
+      'popper.js',
+
+      'vuex',
+      'vuex-persistedstate',
+    ]);
 
 if (mix.inProduction()) {
   mix

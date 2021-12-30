@@ -1,5 +1,5 @@
 import defaultCanvasProps from './defaultCanvasProps.json';
-export default {
+const editor = {
     name: "editor",
     data: () => {
         return {
@@ -9,7 +9,6 @@ export default {
     },
     mounted() {
         this.initCanvas();
-
     },
     methods: {
         initCanvas(){
@@ -83,3 +82,4 @@ export default {
 
     }
 }
+export default editor

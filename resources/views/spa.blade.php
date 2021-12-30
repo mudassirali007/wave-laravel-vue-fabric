@@ -6,6 +6,8 @@ $config = [
     'githubAuth' => config('services.github.client_id'),
 ];
 $appJs = mix('dist/js/app.js');
+$vendorJs = mix('dist/js/vendor.js');
+$manifestJs = mix('dist/js/manifest.js');
 $appCss = mix('dist/css/app.css');
 @endphp
 <!DOCTYPE html>
@@ -26,6 +28,10 @@ $appCss = mix('dist/css/app.css');
     window.config = @json($config);
   </script>
 
-  <script src="{{ (str_starts_with($appJs, '//') ? 'http:' : '').$appJs }}"></script>
+  <script src="{{ (str_starts_with($manifestJs, '//') ? 'http:' : '').$manifestJs }}" defer></script>
+  <script src="{{ (str_starts_with($appJs, '//') ? 'http:' : '').$appJs }}" defer></script>
+  <script src="{{ (str_starts_with($vendorJs, '//') ? 'http:' : '').$vendorJs }}" defer></script>
+
+
 </body>
 </html>
